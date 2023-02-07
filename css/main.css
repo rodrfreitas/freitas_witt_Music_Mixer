@@ -1,0 +1,383 @@
+/* 
+
+    CSS Guide
+
+    1. General Styles
+    2. Grid
+    3. Header
+    4. Main Hero Image
+    5. Features
+    6. Footer
+
+*/
+
+/* 1. ---General Styles--- */
+
+
+.hidden {
+    display: none;
+}
+
+.container {
+    width: 1640px;
+    margin: 0 auto;
+
+}
+
+.box-color {
+    background-color: black;
+    color: white;
+    text-align: center;
+
+
+}
+
+.box-color2{
+    background-color: #a7a7a7;
+    color: white;
+    text-align: center;
+
+
+}
+
+
+body {
+    background-color: #43586B;
+}
+
+
+/* 2. ---Grid--- */
+
+/* this is the exact same grid used in Adobe XD, we have recreated 
+the grid using CSS. It is a class becasue we will use multiple grids */
+
+.grid {
+    display: grid;
+    padding-left: 15px;
+    padding-right: 15px;
+    grid-template-columns: repeat(12, 109px);
+    grid-column-gap: 30px;
+
+}
+
+
+/* 3. ---Header--- */ 
+
+#main-header{
+    margin-top: 15px;
+
+}
+
+
+#header-con {
+    height: 90px;
+    width: 1636px;
+    grid-column: 1/-1;
+
+}
+
+
+#header-logo {
+    height: 90px;
+    width: 398px;
+    grid-column: 1/4;
+
+}
+
+
+
+
+
+/* 4. ---Music Player--- */
+
+/* 5. --Sound Effects--- */
+
+#sound-effect-con {
+    grid-column: 1/-1;
+    width: 1640px;
+    height: 600px;
+
+}
+
+
+
+
+/* 6. --Drop Zones Effects--- */
+
+
+.box-soundeff {
+    background-color: #FDC744;
+    color: rgb(165, 165, 165);
+    transform: rotate(45deg);
+    box-shadow: 10px 10px 20px rgba(219, 219, 219, 0.2);
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 20px;
+
+}
+
+
+/* 6. --Sound Catch Bar--- */
+
+#sound-catch-bar-con {
+    grid-column: 1/-1;
+    width: 1606px;
+    height: 250px;
+    margin-left: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+#catch-bar{
+    width: 75px;
+    height: 75px;
+    margin-bottom: 45px;
+    margin-top: 15px;
+    margin-left: 500px;
+}
+
+
+
+.child {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns of equal width */
+    grid-template-rows: 1fr 1fr; /* 2 rows of equal height */
+    height: 200px;
+    width: 600px;
+
+  }
+  
+  .catch-sound {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    border: 1px solid black;
+    transform: rotate(45deg); /* rotate the square by 45 degrees */
+  }
+
+
+  .rowtop {
+    margin-top: 25px;
+    
+  }
+  
+
+  .rowbottom {
+    margin-left: 100px;
+    margin-top: -30px;
+  }
+  
+
+
+
+
+/* 7. ---Drop zone--- */
+
+.drop-zone{
+    width: 75px;
+    height: 75px;
+    margin-top: 85px;
+    margin-left: 40px;
+}
+
+
+
+
+#drop-zone-left {
+    height: 590px;
+    width: 150px;
+    grid-column: 1/4;
+    grid-row: 1/1;
+ 
+}
+
+.dzl1 {    margin-top: 80px; }
+.dzl2 {    margin-top: 80px; }
+.dzl3 {    margin-top: 80px; }
+
+.dzr1 {    margin-top: 80px; }
+.dzr2 {    margin-top: 80px; }
+.dzr3 {    margin-top: 80px; }
+
+
+
+
+#drop-zone-right {
+    height: 590px;
+    width: 150px;
+    grid-column: 11/-1;
+    grid-row: 1/1;
+    margin-left: 96px;
+}
+
+
+/*End of Drop Zone */
+
+
+
+/* SVG ANIMATIONS START HERE */
+
+/* SVG VYNIL DISK ANIMATIONS START HERE */
+
+
+.wrapper-con {
+    width: 20%;
+    display: grid;
+    padding: 2em;
+    grid-column: 2/7;
+    grid-row: 1/4;
+}
+
+.wrapper-con img {    width: 100%;}
+
+.wrapper {
+    width: 100%;
+    display: grid;
+    padding: 2em;
+}
+
+
+
+.wrapper img {
+
+    width: 100%;
+
+}
+
+    
+#discreflection {
+    animation: disk 0.8s infinite linear;
+    transform-origin: 50% 50%;
+     display: grid;
+     
+           
+  }
+    
+     @keyframes disk {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg); }
+     }
+
+
+    
+ #classicmusicmixertext {
+        animation: disktext 0.8s infinite linear;
+        transform-origin: 50% 50%;
+        display: grid;
+         fill: white;
+               
+      }
+        
+         @keyframes disktext {
+                0% { transform: rotate(0deg);}
+                100% { transform: rotate(360deg); }
+         }
+
+
+
+#yellowglo {         
+    animation-name: diskglow;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}           
+    @keyframes diskglow {
+         0% {
+            filter: drop-shadow(0px 0px 1px #fff)
+            drop-shadow(0px 0px 3px #fff)
+            drop-shadow(0px 0px 10px #ffb380)
+            drop-shadow(0px 0px 30px #d0ff4d)
+            drop-shadow(0px 0px 50px #fffb00);
+            }  
+}
+
+/* SVG VYNIL DISK ANIMATIONS FINISH HERE */
+
+
+
+
+
+
+
+
+
+/* 5. --Features--- */
+
+
+#features-con {
+
+    width: 1640px;
+
+}
+
+
+
+
+#volume-bar {
+    height: 40px;
+    width: 260px;
+    grid-column: 6/8;
+    grid-row: 1/1;
+margin-top: 450px;
+
+}
+
+#equalizer-bar {
+    height: 45px;
+    width: 805px;
+    grid-column: 4/11;
+    grid-row: 1/2;
+    align-items: center;
+
+}
+
+
+#play-btn {
+    height: 150px;
+    width: 260px;
+    grid-column: 6/8;
+    grid-row: 1/2;
+    margin-top: 250px;
+
+}
+
+#reset-pause-btn {
+    height: 100px;
+    width: 260px;
+    grid-column: 6/8;
+    grid-row: 1/1;
+    margin-top: 100px;
+}
+
+
+
+
+/*Tape Supply Rell */
+
+
+
+#tape-supply-rell-left {
+    height: 502px;
+    width: 502px;
+    grid-column: 2/4;
+    grid-row: 1/1;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+
+#tape-supply-rell-right {
+    height: 502px;
+    width: 502px;
+    grid-column: 7/12;
+    grid-row: 1/1;
+    margin-left: 110px;
+    margin-top: 50px;
+    margin-top: 20px;
+}
+
+
+
+
+
+
