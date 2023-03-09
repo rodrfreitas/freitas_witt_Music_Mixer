@@ -1,6 +1,5 @@
 let theButtons = document.querySelectorAll("#buttonHolder img"),
     theHeading = document.querySelector("#headLine h1"),
-    puzzleBoard = document.querySelector(".puzzle-board"),
     puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
 	puzzlePiecesBoard = document.querySelectorAll(".puzzle-pieces"),
     dropZones = document.querySelectorAll('.drop-zone'),
@@ -25,16 +24,24 @@ function isDropZoneEmpty(zone) {
     return !zone.classList.contains("occupied");
 }
 
+
+
 function handleDrop(e) {
     e.preventDefault();
     console.log('dropped something on me');
     if (isDropZoneEmpty(this)) {
-        this.appendChild(draggedPiece);
-        this.classList.add("occupied");
+      this.appendChild(draggedPiece);
+      this.classList.add("occupied");
+      const soundSrc = draggedPiece.getAttribute("data-audio");
+      const sound = new Audio(soundSrc);
+      sound.loop = true; 
+      sound.play();
     } else {
-        console.log("This drop zone is already occupied");
+      console.log("This drop zone is already occupied");
     }
-}
+  }
+
+
 
 function handleRemove(e) {
     console.log('removed piece from drop zone');
@@ -59,5 +66,6 @@ puzzlePiecesBoard.forEach(zone => {
 });
 
 
-1
+
+
 
