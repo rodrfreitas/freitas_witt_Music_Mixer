@@ -71,36 +71,11 @@ height: 70px;
  }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 1. ---General Styles--- */
 
 body {
     background-color: #43586B;
 }
-
-
-
 
 
 /* 2. ---Header--- */
@@ -143,19 +118,18 @@ body {
 
 /* SVG ANIMATIONS START HERE */
 
-/* SVG VYNIL DISK ANIMATIONS START HERE */
-
-
 
 .wrapper {
     width: 100%;
 }
 
-#discreflection {
-    animation: disk 0.8s infinite linear;
+
+/* Supply REEL  02 ANIMATIONS STARTS HERE */
+
+#supply_reeldetail2 {
+    animation: crescendo 15s alternate infinite ease-in; disk 0.8s infinite linear;
     transform-origin: 50% 50%;
      display: grid;
-
 
   }
 
@@ -165,12 +139,18 @@ body {
      }
 
 
+     @keyframes crescendo {
+        0%   {transform: scale(.4);}
+        100% {transform: scale(1);}
+      }
 
- #classicmusicmixertext {
+    
+
+ #reel_center2 {
         animation: disktext 0.8s infinite linear;
         transform-origin: 50% 50%;
         display: grid;
-         fill: white;
+
 
       }
 
@@ -180,24 +160,84 @@ body {
          }
 
 
+ #supply_reel2 {
+    animation: crescendo 15s alternate infinite ease-in; disk 0.8s infinite linear;
+            transform-origin: 50% 50%;
+             display: grid;
+        
+        
+          }
+        
+             @keyframes disk {
+                    0% { transform: rotate(0deg);}
+                    100% { transform: rotate(360deg); }
+             }
 
-#yellowglo {
-    animation-name: diskglow;
-    animation-duration: 0.8s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+#reel_background2{
+    fill: #6d869e;
 }
-    @keyframes diskglow {
-         0% {
-            filter: drop-shadow(0px 0px 1px #fff)
-            drop-shadow(0px 0px 3px #fff)
-            drop-shadow(0px 0px 10px #ffb380)
-            drop-shadow(0px 0px 30px #d0ff4d)
-            drop-shadow(0px 0px 50px #fffb00);
-            }
-}
+       
+           
 
-/* SVG VYNIL DISK ANIMATIONS FINISH HERE */
+
+/* Supply REEL 01 ANIMATIONS STARTS HERE */
+
+#supply_reeldetail1 {
+    animation: decrescendo 15s alternate infinite ease-in; disk 0.8s infinite linear;
+    transform-origin: 50% 50%;
+     display: grid;
+
+  }
+
+     @keyframes disk1 {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg); }
+     }
+
+
+     @keyframes decrescendo {
+        0%   {transform: scale(1);}
+        100% {transform: scale(.4);}
+      }
+
+    
+
+ #reel_center1 {
+        animation: disktext1 0.8s infinite linear;
+        transform-origin: 50% 50%;
+        display: grid;
+
+
+      }
+
+         @keyframes disktext1 {
+                0% { transform: rotate(0deg);}
+                100% { transform: rotate(360deg); }
+         }
+
+
+ #supply_reel1 {
+    animation: decrescendo 15s alternate infinite ease-in; disk 0.8s infinite linear;
+            transform-origin: 50% 50%;
+             display: grid;
+        
+        
+          }
+        
+             @keyframes disk {
+                    0% { transform: rotate(0deg);}
+                    100% { transform: rotate(360deg); }
+             }
+             @keyframes decrescendo {
+                0%   {transform: scale(1);}
+                100% {transform: scale(.4);}
+              }
+
+#reel_background1{
+    fill: #6d869e;
+}
+      
+
 
 
 /*Reset button styles Starts here */
