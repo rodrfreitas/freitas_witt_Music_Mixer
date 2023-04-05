@@ -5,7 +5,6 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
     dropZones = document.querySelectorAll('.drop-zone'),
     draggedPiece;
 
-
 function handleStartDrag() {
     console.log('started dragging this piece:', this);
     draggedPiece = this;
@@ -20,19 +19,45 @@ function isDropZoneEmpty(zone) {
     return !zone.classList.contains("occupied");
 }
 
+let firstSound;
+
 function handleDrop(e) {
-    e.preventDefault();
-    console.log('dropped something on me');
-    if (isDropZoneEmpty(this)) {
-        this.appendChild(draggedPiece);
-        this.classList.add("occupied");
-        const soundSrc = draggedPiece.getAttribute("data-audio");
-        const sound = new Audio(soundSrc);
-        sound.loop = true;
-        sound.play();
+  e.preventDefault();
+  console.log('dropped something on me');
+  if (isDropZoneEmpty(this)) {
+    this.appendChild(draggedPiece);
+    this.classList.add("occupied");
+    const soundSrc = draggedPiece.getAttribute("data-audio");
+    const sound = new Audio(soundSrc);
+
+    // If this is the first sound, start it and save a reference to it
+    if (!firstSound) {
+      firstSound = sound;
+      firstSound.loop = true;
+      firstSound.addEventListener('canplaythrough', function() {
+        firstSound.play();
+      });
     } else {
-        console.log("This drop zone is already occupied");
+      // Set the currentTime of subsequent sounds to the currentTime of the first sound
+      sound.currentTime = firstSound.currentTime+0.2;
+      sound.loop = true;
+      sound.addEventListener('canplaythrough', function() {
+        sound.play();
+        
+        // Add an event listener to update the currentTime of the sound only the first time it starts playing
+        sound.addEventListener('ended', function updateCurrentTime() {
+          const currentTime = firstSound.currentTime;
+          sound.currentTime = currentTime;
+          sound.removeEventListener('ended', updateCurrentTime);
+        }, { once: true });
+      });
     }
+
+    // Add the audio element to the drop zone
+    this.appendChild(sound);
+  } else {
+    console.log("This drop zone is already occupied");
+  }
 }
 
 function handleRemove(mutationsList) {
